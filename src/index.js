@@ -74,8 +74,7 @@ app.use(passport_init);
 app.use(passport_session);
 localAuth();
 mongodb.connectToDatabase("NoteBuzz");
-mySocket(server);
-app.use(express.static(path.join(__dirname, "../public")));
+mySocket(server); 
 
 app.use(errorChecker);
 authRoutes.use(errorChecker);
@@ -93,8 +92,7 @@ app.use(settingsRoutes);
 app.use(mainRoutes);
 
 app.get("/*", function (req, res) {
-  // return res.send("Hello world")
-  return res.sendFile(path.join(__dirname, "../public", "index.html"));
+  return res.send("Hello world"); 
 });
 
 server.listen(port, (err) => {
