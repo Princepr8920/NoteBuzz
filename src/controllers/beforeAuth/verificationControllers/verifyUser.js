@@ -70,13 +70,13 @@ const verifyNewUser = async (req, res, next) => {
         httpOnly: true,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
       });
 
       res.clearCookie("welcome_cookies", {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
       });
 
       return res.status(200).json({
