@@ -1,3 +1,3 @@
-const myOrigins = ["http://localhost:3000"];
+const myOrigins = [process.env.BASE_URL];
 
 module.exports = myOrigins;
