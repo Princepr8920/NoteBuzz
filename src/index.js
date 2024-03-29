@@ -69,12 +69,12 @@ app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
+mongodb.connectToDatabase("NoteBuzz");
+mySocket(server);
 app.use(session);
 app.use(passport_init);
 app.use(passport_session);
 localAuth();
-mongodb.connectToDatabase("NoteBuzz");
-mySocket(server); 
 
 app.use(errorChecker);
 authRoutes.use(errorChecker);
@@ -92,7 +92,7 @@ app.use(settingsRoutes);
 app.use(mainRoutes);
 
 app.get("/*", function (req, res) {
-  return res.send("Hello world"); 
+  return res.send("Hello world");
 });
 
 server.listen(port, (err) => {
