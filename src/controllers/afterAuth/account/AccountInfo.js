@@ -36,7 +36,7 @@ const accountInfo = async (req, res, next) => {
               maxAge: 30 * 60 * 1000,
               httpOnly: true,
               secure: true,
-              sameSite: "strict",
+              sameSite: "none",
             });
             return res.status(202).json(isEmailRequest);
           } else {
@@ -85,7 +85,7 @@ const accountInfo = async (req, res, next) => {
               maxAge: 30 * 60 * 1000,
               httpOnly: true,
               secure: true,
-              sameSite: "strict",
+              sameSite: "none",
             });
             return res.status(202).json(isEmailRequest);
           } else {

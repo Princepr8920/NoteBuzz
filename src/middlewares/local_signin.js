@@ -29,7 +29,7 @@ const local_signin = async (req, res, next) => {
                 res.cookie("secure_login", tokens.createdTokens.loginToken, {
                   httpOnly: true,
                   secure: true,
-                  sameSite: "strict",
+                  sameSite: "none",
                   maxAge: 30 * 60 * 10000,
                 });
                 return res.status(202).json(isEmailSent);

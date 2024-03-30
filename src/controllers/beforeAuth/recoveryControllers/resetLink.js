@@ -28,7 +28,7 @@ const resetPasswordLink = async (req, res, next) => {
         return res
           .status(302)
           .redirect(
-            `http://localhost:3000/user/passwordrecovery/setnewpassword/${token}`
+            `${process.env.BASE_URL}/user/passwordrecovery/setnewpassword/${token}`
           );
       } else {
        return res.sendStatus(403);

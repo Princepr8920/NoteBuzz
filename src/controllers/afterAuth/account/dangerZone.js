@@ -19,12 +19,12 @@ const deleteAccount = async (req, res, next) => {
       res.clearCookie("app_connect", {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
       });
       res.clearCookie("mng_mode", {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
       });
       return res
         .status(200)

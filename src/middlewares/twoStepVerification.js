@@ -21,7 +21,7 @@ async function twoStepVerifiation(req, res, next) {
           res.clearCookie("secure_login", {
             httpOnly: true,
             secure: true,
-            sameSite: "strict",
+            sameSite: "none",
           });
           //req.user = user // we have set the req.user = user; only for testing
           return next();
