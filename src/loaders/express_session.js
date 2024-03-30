@@ -5,7 +5,12 @@ module.exports = session({
   secret: process.env.TOP_SECRET,
   resave: true,
   saveUninitialized: false,
-  cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: true, sameSite: "none" },
+  cookie: {
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict",
+  },
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_DB_URL,
   }),

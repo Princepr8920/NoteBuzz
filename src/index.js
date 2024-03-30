@@ -2,6 +2,7 @@ const express = require("express"),
   app = express(),
   path = require("path"),
   dotenv = require("dotenv").config(),
+  csrf = require("csurf"),
   cors = require("cors"),
   helmet = require("helmet"),
   hpp = require("hpp"),
@@ -36,7 +37,11 @@ app.use(
     useDefaults: true,
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "https://www.gstatic.com"],
+      scriptSrc: [
+        "'self'",
+        "https://www.gstatic.com",
+        "https://notebuzz.netlify.app",
+      ],
       styleSrc: [
         "'self'",
         "https://fonts.googleapis.com",
@@ -62,6 +67,12 @@ app.use(
 app.set("trust proxy", 1);
 app.use(hpp());
 app.disable("x-powered-by");
+app.use(csrf());
+// Middleware to set CSRF token in response headers
+app.use((req, res, next) => {
+  res.setHeader("X-CSRF-Token", req.csrfToken());
+  next();
+});
 app.use(mongoSanitize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(credentials);

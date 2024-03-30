@@ -9,6 +9,7 @@ const corsOptions = {
     }
   },
   optionSuccessStatus: 200,
+  credentials: true
 };
 
 module.exports = corsOptions;

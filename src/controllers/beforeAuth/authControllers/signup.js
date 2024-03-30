@@ -16,7 +16,7 @@ const signup = async (req, res, next) => {
       maxAge: 30 * 60 * 1000,
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "strict",
     });
 
     return res.status(202).json({
