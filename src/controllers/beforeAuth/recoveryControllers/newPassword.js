@@ -17,12 +17,12 @@ const setNewPassword = async (req, res, next) => {
       res.clearCookie("change_once", {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
+        sameSite: "none",
       });
 
       res.clearCookie("recovery_mode", {
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "none",
         secure: true,
       });
 

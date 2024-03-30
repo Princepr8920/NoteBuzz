@@ -14,13 +14,13 @@ const resetPasswordLink = async (req, res, next) => {
         res.cookie("change_once", token, {
           maxAge: 30 * 60 * 1000,
           httpOnly: true,
-          sameSite: "strict",
+          sameSite: "none",
           secure: true,
         });
 
         res.cookie("recovery_mode", true, {
           httpOnly: true,
-          sameSite: "strict",
+          sameSite: "none",
           secure: true,
           maxAge: 30 * 60 * 1000,
         });

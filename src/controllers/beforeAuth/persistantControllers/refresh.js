@@ -11,7 +11,7 @@ const refresh = async (req, res, next) => {
     res.clearCookie("mng_mode", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     });
   }
 
@@ -19,7 +19,7 @@ const refresh = async (req, res, next) => {
     res.clearCookie("secure_login", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     });
     req.logOut((err) => {
       /*  if user two-step-verification is enabled but not 
