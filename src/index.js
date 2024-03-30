@@ -57,7 +57,11 @@ app.use(
         "data:",
         "https://die739ygwougn.cloudfront.net",
       ],
-      connectSrc: ["'self'", "https://die739ygwougn.cloudfront.net"],
+      connectSrc: [
+        "'self'",
+        "https://die739ygwougn.cloudfront.net",
+        "https://notebuzz.netlify.app",
+      ],
       objectSrc: ["'none'"],
     },
   })
