@@ -67,7 +67,7 @@ app.use(
 app.set("trust proxy", 1);
 app.use(hpp());
 app.disable("x-powered-by");
-app.use(csrf());
+app.use(csrf({ cookie: true }));
 // Middleware to set CSRF token in response headers
 app.use((req, res, next) => {
   res.setHeader("X-CSRF-Token", req.csrfToken());
