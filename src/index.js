@@ -2,7 +2,7 @@ const express = require("express"),
   app = express(),
   path = require("path"),
   dotenv = require("dotenv").config(),
-  csrf = require("csurf"),
+  // csrf = require("csurf"),
   cors = require("cors"),
   helmet = require("helmet"),
   hpp = require("hpp"),
@@ -74,15 +74,15 @@ app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
-app.use(csrf({ cookie: true }));
+// app.use(csrf({ cookie: true }));
 app.use(session);
 app.use(passport_init);
 app.use(passport_session);
 localAuth();
-app.use((req, res, next) => {
-  res.setHeader("X-CSRF-Token", req.csrfToken());
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("X-CSRF-Token", req.csrfToken());
+//   next();
+// });
 
 mongodb.connectToDatabase("NoteBuzz");
 mySocket(server);
