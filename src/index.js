@@ -75,16 +75,16 @@ app.use(logger("dev"));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
 app.use(csrf({ cookie: true }));
-// Middleware to set CSRF token in response headers
-app.use((req, res, next) => {
-  res.setHeader("X-CSRF-Token", req.csrfToken());
-  next();
-});
-mongodb.connectToDatabase("NoteBuzz");
 app.use(session);
 app.use(passport_init);
 app.use(passport_session);
 localAuth();
+app.use((req, res, next) => {
+  res.setHeader("X-CSRF-Token", req.csrfToken());
+  next();
+});
+
+mongodb.connectToDatabase("NoteBuzz");
 mySocket(server);
 
 app.use(errorChecker);
