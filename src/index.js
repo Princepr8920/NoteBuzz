@@ -1,6 +1,7 @@
 const express = require("express"),
   app = express(),
   dotenv = require("dotenv").config(),
+  path = require("path"),
   cors = require("cors"),
   helmet = require("helmet"),
   hpp = require("hpp"),
@@ -68,6 +69,7 @@ app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(session);
 app.use(passport_init);
 app.use(passport_session);
@@ -92,7 +94,7 @@ app.use(settingsRoutes);
 app.use(mainRoutes);
 
 app.get("/*", function (req, res) {
-  return res.send("Hello world");
+  return res.sendFile(path.join(__dirname,"../public","index.html"));
 });
 
 server.listen(port, (err) => {
