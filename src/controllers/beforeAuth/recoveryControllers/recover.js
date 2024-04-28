@@ -20,7 +20,7 @@ const recoverPassword = async (req, res, next) => {
 
       if (tokens.success) {
         const { requestsToken } = tokens.createdTokens;
-        const link = `http://localhost:4000/account/verify/${requestsToken}`;
+        const link = `${process.env.BASE_URL}/account/verify/${requestsToken}`;
         const isLinkSend = await sendNewEmail.sendResetPasswordLink({
           username,
           email,
