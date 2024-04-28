@@ -1,5 +1,4 @@
 const createToken = require("../../../services/createToken"),
-  { formatDate } = require("../../../utils/userAge"),
   filterInfo = require("../../../utils/filterInfo"),
   emailSender = require("../../../services/emailGenerator"),
   sendNewEmail = new emailSender(),

@@ -35,11 +35,7 @@ app.use(
     useDefaults: true,
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: [
-        "'self'",
-        "https://www.gstatic.com",
-        "https://notebuzz.netlify.app",
-      ],
+      scriptSrc: ["'self'", "https://www.gstatic.com"],
       styleSrc: [
         "'self'",
         "https://fonts.googleapis.com",
@@ -57,11 +53,7 @@ app.use(
         "data:",
         "https://die739ygwougn.cloudfront.net",
       ],
-      connectSrc: [
-        "'self'",
-        "https://die739ygwougn.cloudfront.net",
-        "https://notebuzz.netlify.app",
-      ],
+      connectSrc: ["'self'", "https://die739ygwougn.cloudfront.net"],
       objectSrc: ["'none'"],
     },
   })

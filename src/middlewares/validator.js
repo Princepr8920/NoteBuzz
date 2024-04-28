@@ -248,7 +248,7 @@ const signupValidation = [
     .withMessage("Your password must have at least 1 uppercase letter.")
     .matches(/[a-z]+/)
     .withMessage("Your password must have at least 1 lowercase letter.")
-    .matches(/[!@#$\{%\}^;:\.\/'\["&\]*\(\)]+/g)
+    .matches(/[\-\_!@#$\{%\}^;:\.\/'\["&\]*\(\)]+/g)
     .withMessage("Your password should have at least one special character."),
 
   body("confirm_password").custom((value, { req }) => {
