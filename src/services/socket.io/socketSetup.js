@@ -9,7 +9,7 @@ const { Server } = require("socket.io"),
 function mySocket(server) {
   const io = new Server(server, {
     cors: {
-      origin: process.env.BASE_URL,
+      origin: [process.env.BASE_URL],
       methods: ["GET", "POST"],
     },
   });
