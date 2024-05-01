@@ -11,7 +11,10 @@ function mySocket(server) {
     cors: {
       origin: process.env.BASE_URL,
       methods: ["GET", "POST"],
+      transports: ['websocket', 'polling'],
+      credentials: true
     },
+    allowEIO3: true
   });
 
   console.log("Web Sockets Activated ⚡");
