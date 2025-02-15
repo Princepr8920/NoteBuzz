@@ -1,3 +1,6 @@
-const myOrigins = [process.env.BASE_URL];
+const myOrigins = [
+  "https://notebuzz.strrings.in",
+  "https://www.notebuzz.strrings.in",
+];
 
 module.exports = myOrigins;

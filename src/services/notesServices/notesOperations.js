@@ -15,10 +15,6 @@ async function saveNotesToDb(userID) {
   let notesToSave = [];
 
   for (let note in notes) {
-    if (notes[note].noteTitle.trim() === "") {
-      notes[note].noteTitle = "Untitled";
-    }
-
     if (isOldNote(userID, notes[note].noteID)) {
       notesToSave.push({
         updateOne: {

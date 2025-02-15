@@ -9,12 +9,12 @@ const { Server } = require("socket.io"),
 function mySocket(server) {
   const io = new Server(server, {
     cors: {
-      origin: process.env.BASE_URL,
+      origin: [
+        "https://notebuzz.strrings.in",
+        "https://www.notebuzz.strrings.in",
+      ],
       methods: ["GET", "POST"],
-      transports: ['websocket', 'polling'],
-      credentials: true
     },
-    allowEIO3: true
   });
 
   console.log("Web Sockets Activated ⚡");

@@ -5,10 +5,12 @@ module.exports = session({
   secret: process.env.TOP_SECRET,
   resave: false,
   saveUninitialized: false,
+  proxy: true,
   cookie: {
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
+    // domain: "strrings.in",
+    maxAge: 6 * 30 * 24 * 60 * 60 * 1000, // 6 months session
     secure: true,
+    httpOnly: true,
     sameSite: "strict",
   },
   store: MongoStore.create({

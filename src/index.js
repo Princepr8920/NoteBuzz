@@ -52,9 +52,14 @@ app.use(
         "'self'",
         "https:",
         "data:",
-        "https://die739ygwougn.cloudfront.net",
+        "https://d3epktgu6t58eq.cloudfront.net",
       ],
-      connectSrc: ["'self'", "https://die739ygwougn.cloudfront.net"],
+      connectSrc: [
+        "'self'",
+        "https://d3epktgu6t58eq.cloudfront.net",
+        "https://notebuzz.strrings.in",
+        "wss://notebuzz.strrings.in",
+      ],
       objectSrc: ["'none'"],
     },
   })
@@ -94,7 +99,7 @@ app.use(settingsRoutes);
 app.use(mainRoutes);
 
 app.get("/*", function (req, res) {
-  return res.sendFile(path.join(__dirname,"../public","index.html"));
+  return res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
 server.listen(port, (err) => {

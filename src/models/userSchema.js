@@ -172,7 +172,7 @@ async function setDefaultValues(info, client) {
   const objectWithDefaultValues = {
     ...info,
     provider: "local",
-    avatar: `https://die739ygwougn.cloudfront.net/avatars/dog.png`,
+    avatar: `https://d3epktgu6t58eq.cloudfront.net/avatars/dog.png`,
     last_visit: new Date(),
     joined_at: new Date(),
     security: {
