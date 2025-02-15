@@ -6,8 +6,7 @@ const express = require("express"),
   helmet = require("helmet"),
   hpp = require("hpp"),
   mongoSanitize = require("express-mongo-sanitize"),
-  cookieParser = require("cookie-parser"),
-  bodyParser = require("body-parser"),
+  cookieParser = require("cookie-parser"), 
   credentials = require("./middlewares/credentials"),
   corsOptions = require("./config/corsOption"),
   session = require("./loaders/express_session"),
@@ -68,20 +67,19 @@ app.set("trust proxy", 1);
 app.use(hpp());
 app.disable("x-powered-by");
 app.use(mongoSanitize());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(credentials);
 app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "../public")));
 app.use(session);
 app.use(passport_init);
 app.use(passport_session);
 localAuth();
-
 mongodb.connectToDatabase("NoteBuzz");
 mySocket(server);
+app.use(express.static(path.join(__dirname, "../public")));
+
 
 app.use(errorChecker);
 authRoutes.use(errorChecker);
