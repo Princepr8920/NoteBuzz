@@ -6,7 +6,7 @@ const express = require("express"),
   helmet = require("helmet"),
   hpp = require("hpp"),
   mongoSanitize = require("express-mongo-sanitize"),
-  cookieParser = require("cookie-parser"), 
+  cookieParser = require("cookie-parser"),
   credentials = require("./middlewares/credentials"),
   corsOptions = require("./config/corsOption"),
   session = require("./loaders/express_session"),
@@ -80,7 +80,6 @@ mongodb.connectToDatabase("NoteBuzz");
 mySocket(server);
 app.use(express.static(path.join(__dirname, "../public")));
 
-
 app.use(errorChecker);
 authRoutes.use(errorChecker);
 accountRoutes.use(errorChecker);
@@ -97,7 +96,7 @@ app.use(settingsRoutes);
 app.use(mainRoutes);
 
 app.get("/*", function (req, res) {
-  return res.sendFile(path.join(__dirname, "../public", "index.html"));
+  res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
 server.listen(port, (err) => {
